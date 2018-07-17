@@ -1,0 +1,21 @@
+{
+  "name": "dropbox-clone-pure-javascript",
+  "homepage": "https://github.com/gabriel-hahn/dropbox-clone-pure-javascript",
+  "authors": [
+    "Gabriel Hahn Schaeffer"
+  ],
+  "description": "Dropbox clone with pure JavaScript on Front-end and Back-end (NodeJS) - JavaScript course",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Ionicons": "ionicons#^2.0.1",
+    "bootstrap": "^4.1.0"
+  }
+}
