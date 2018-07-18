@@ -7,7 +7,17 @@ class DropBoxController {
         this.progressBarEl = this.snackModalEl.querySelector('.mc-progress-bar-fg');
         this.nameFileEl = this.snackModalEl.querySelector('.filename');
         this.timeLeftEl = this.snackModalEl.querySelector('.timeleft');
+
+        this.connectFirebase();
         this.initEvents();
+    }
+
+    connectFirebase() {
+        // Initialize Firebase
+        var config = {
+            //Your Firebase config :)
+        };
+        firebase.initializeApp(config);
     }
 
     initEvents() {
