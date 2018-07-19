@@ -1,6 +1,11 @@
 class DropBoxController {
 
     constructor() {
+        this.onselectionchange = new Event('selectionChange');
+
+        this.btnNewFolder = document.querySelector('#btn-new-folder');
+        this.btnRename = document.querySelector('#btn-rename');
+        this.btnDelete = document.querySelector('#btn-delete');
         this.btnSendFileEl = document.querySelector('#btn-send-file');
         this.inputFilesEl = document.querySelector('#files');
         this.snackModalEl = document.querySelector('#react-snackbar-root');
@@ -23,6 +28,22 @@ class DropBoxController {
     }
 
     initEvents() {
+        this.listFilesEl.addEventListener('selectionChange', event => {
+            switch (this.getSelection().length) {
+                case 0:
+                    this.btnDelete.style.display = 'none';
+                    this.btnRename.style.display = 'none';
+                    break;
+                case 1:
+                    this.btnDelete.style.display = 'block';
+                    this.btnRename.style.display = 'block';
+                    break;
+                default:
+                    this.btnDelete.style.display = 'block';
+                    this.btnRename.style.display = 'none';
+            }
+        });
+
         this.btnSendFileEl.addEventListener('click', event => {
             this.inputFilesEl.click();
         });
@@ -44,6 +65,10 @@ class DropBoxController {
 
             this.modalShow();
         });
+    }
+
+    getSelection() {
+        return this.listFilesEl.querySelectorAll('.selected');
     }
 
     uploadComplete() {
@@ -178,6 +203,9 @@ class DropBoxController {
                         }
                     });
 
+                    //Event created to 'check' when the selection change
+                    this.listFilesEl.dispatchEvent(this.onselectionchange);
+
                     return true;
                 }
             }
@@ -190,6 +218,8 @@ class DropBoxController {
             }
 
             li.classList.toggle('selected');
+
+            this.listFilesEl.dispatchEvent(this.onselectionchange);
         });
     }
 
