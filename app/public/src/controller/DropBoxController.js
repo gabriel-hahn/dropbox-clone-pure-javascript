@@ -252,6 +252,8 @@ class DropBoxController {
 
                 let task = fileRef.put(file);
 
+                this.startUploadTime = Date.now();
+
                 task.on('state_changed', progress => {
                     this.uploadProgress({
                         loaded: progress.bytesTransferred,
@@ -261,7 +263,6 @@ class DropBoxController {
                     console.error(error);
                     reject(error);
                 }, () => {
-
                     //Get the URL download and only after that I can 'resolve' the promise
                     fileRef.getDownloadURL().then(url => {
                         fileRef.getMetadata().then(metadata => {
