@@ -1,6 +1,8 @@
 # dropbox-clone-pure-javascript
 Dropbox clone with pure JavaScript / Firebase (basic operations) - JavaScript course
 
+![image](https://i.imgur.com/xgdXyQx.png)
+
 # Getting Started
 In app folder, execute the follow commands (front-end):
 
