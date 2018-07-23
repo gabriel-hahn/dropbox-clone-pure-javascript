@@ -4,6 +4,9 @@ Dropbox clone with pure JavaScript / Firebase (basic operations) - JavaScript co
 ![image](https://i.imgur.com/xgdXyQx.png)
 
 # Getting Started
+
+DropBoxController.js file, change the method 'connectFirebase' to your Firebase config.
+
 In app folder, execute the follow commands (front-end):
 
 - npm install
